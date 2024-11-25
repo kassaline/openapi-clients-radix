@@ -136,7 +136,7 @@ class AuthenticateApi
      */
     public function apiAuthenticateApiKeyPost($extendedLoginApiKeyRequest = null, string $contentType = self::contentTypes['apiAuthenticateApiKeyPost'][0])
     {
-        $this->apiAuthenticateApiKeyPostWithHttpInfo($extendedLoginApiKeyRequest, $contentType);
+        return $this->apiAuthenticateApiKeyPostWithHttpInfo($extendedLoginApiKeyRequest, $contentType);
     }
 
     /**
@@ -188,7 +188,7 @@ class AuthenticateApi
                 );
             }
 
-            return [$response->getResponse()->getContents(), $statusCode, $response->getHeaders()];
+            return [$response->getBody()->getContents(), $statusCode, $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
