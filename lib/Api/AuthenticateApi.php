@@ -188,7 +188,7 @@ class AuthenticateApi
                 );
             }
 
-            return [null, $statusCode, $response->getHeaders()];
+            return [$response->getResponse()->getContents(), $statusCode, $response->getHeaders()];
 
         } catch (ApiException $e) {
             switch ($e->getCode()) {
